@@ -1,8 +1,11 @@
 package hcute.hoo.design.pattern.creational.singleton;
 
+/**
+ * volatile  + double check
+ */
 public class LazyDoubleCheckSingleton {
 
-    // 添加volatile防止重排序
+    // 添加volatile 防止重排序
     private volatile static LazyDoubleCheckSingleton lazyDoubleCheckSingleton;
 
     private LazyDoubleCheckSingleton(){}
