@@ -39,5 +39,21 @@ public class Test {
         System.out.println(instance == newInstance);*/
 
 
+        // 测试单例容器
+        /*Thread t1 = new Thread(new T());
+        Thread t2 = new Thread(new T());
+        t1.start();
+        t2.start();
+        System.out.println("program end");*/
+
+        // 测试线程单例
+        System.out.println(Thread.currentThread().getName() + ThreadLocalInstance.getInstance());
+        System.out.println(Thread.currentThread().getName() + ThreadLocalInstance.getInstance());
+        System.out.println(Thread.currentThread().getName() + ThreadLocalInstance.getInstance());
+        Thread t1 = new Thread(new T());
+        Thread t2 = new Thread(new T());
+        t1.start();
+        t2.start();
+        System.out.println("program end");
     }
 }
