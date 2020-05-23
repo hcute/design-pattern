@@ -692,4 +692,67 @@
 #### 代理模式
 
 - 定义
+  
   - 为其他对象提供一种代理，以控制对这个对象的访问
+  - 代理对象在客户端和目标之前起到中介的作用
+  - 类型：结构型
+  
+- 适用场景
+
+  - 保护目标对象
+  - 增强目标对象
+
+- 优点
+
+  - 将代理对象和目标对象分离
+  - 降低了系统的耦合性
+  - 保护了目标对象
+  - 增强目标对象
+
+- 缺点
+
+  - 造成系统设计中类的数目增加
+  - 在客户端和目标对象之间增加了一个代理对象，会造成请求处理速度变慢
+
+- 增加了系统的复杂度
+
+- 扩展
+
+  - 静态代理
+
+    - 在代码中显示指定的代理
+
+  - 动态代理
+
+    - JDK动态只能对实现接口的类生成代理，并不能针对具体的类【未实现接口的类】
+    - CGLib代理，针对类实现进行代理 ，代理类是目标类的子类，采用继承和重写，对于final修饰符的使用
+    - 两者代理速度对比
+      - CGLib采用的是ASM字节码生产代理，比使用java反射效率要高
+      - JDK动态代理在7 和 8 比CGLib要快20%
+
+  - Spring的代理选择
+
+    - 当Bean有实现接口时，Spring就会使用jdk的动态代理
+
+    - 当Bean没有实现接口时，就会使用CGLib的动态代理
+
+    - 可以强制使用CGLib
+
+      - 在spring配置中添加<aop:aspectj-autoproxy proxy-target-class="true"/>
+
+        Https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html
+
+  - 相关模式
+
+    - 代理模式和装饰者模式
+    - 代理模式和适配器模式
+
+- 源码应用
+
+  - java.lang.reflect.Proxy
+  - org.springframework.aop.framework.ProxyFactoryBean
+  - org.springframework.aop.framework.JdkDynamicAopProxy
+  - org.springframework.aop.framework.CglibDynamicAopProxy
+  - org.apache.ibatis.binding.MapperProxyFactory
+
+  
