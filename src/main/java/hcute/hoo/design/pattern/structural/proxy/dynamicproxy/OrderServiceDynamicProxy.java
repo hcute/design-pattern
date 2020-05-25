@@ -41,7 +41,7 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
 
     private void beforeMethod(Object object) {
         int userId = 0;
-        System.out.println("动态代理 before core");
+        System.out.println("动态代理 before code");
         if (object instanceof Order) {
             Order order = (Order) object;
             userId = order.getUserId();
@@ -53,6 +53,6 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
     }
 
     private void afterMethod(){
-        System.out.println("动态代理 after core");
+        System.out.println("动态代理 after code");
     }
 }
